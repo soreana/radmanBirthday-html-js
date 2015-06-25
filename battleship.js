@@ -1,7 +1,7 @@
 var view = {
 	displayMessage : function ( message ){
-		var messageArea = document.getElementById ( "messageArea" );
-		messageArea.innerHTML = message ;
+		var cell = document.getElementById( "messageArea" );
+		cell.innerHTML = message;
 	},
 
 	displayMiss : function (location){
@@ -105,6 +105,15 @@ var model = {
 var controller = {
 	guesses : 0,
 
+	cellClick : function ( cellId){
+		this.guesses ++ ;
+		var hit = model.fire( cellId );
+
+
+		if( hit && model.shipsSunk === model.numShips )
+			view.displayMessage( "You sank all my battleships in " + this.guesses + " guesses." );
+	} ,
+
 	processGuess : function ( guess ){
 		var location = this.parseGuess( guess ) ;
 
@@ -152,6 +161,14 @@ function init () {
 	guessInput.onkeypress = handleKeyPress  ;
 
 	model.generateShips();
+
+	var cell = document.getElementsByTagName ( "td" );
+	for( var i = 0 ; i< cell.length ; i ++ )
+		cell[i].onclick = handleCellClick;
+}
+
+function handleCellClick ( eventObj ) {
+	controller.cellClick ( eventObj.target.id );
 }
 
 function handleFireButton () {
