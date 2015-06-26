@@ -9,11 +9,20 @@
 			}
 
 			div#board {
-				position: relative;
-				width: 1024px;
-				height: 863px;
+				position: fixed;
+				left:0;
+				top: 0;
+				width: 100%;
+				height: auto;
+				min-height: 100%;
+				min-width: 1024px;
 				margin: auto;
-				background: url( "board.jpg" ) no-repeat;
+
+				background: url( "KrustyKrab.jpg" ) no-repeat center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
 			}
 
 			div#messageArea {
@@ -25,8 +34,8 @@
 
 			table {
 				position: absolute;
-				left: 173px;
-				top: 98px;
+				left: 30%;
+				top: 20%;
 				border-spacing: 0px;
 			}
 
@@ -34,6 +43,12 @@
 				width: 94px;
 				height:94px;
 			}
+			audio {
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+
 			form {
 				position: absolute;
 				bottom: 0px;
@@ -48,11 +63,11 @@
 			}
 
 			.hit {
-				background: url( "ship.png" ) no-repeat center center;
+				background: url( "SpongeBob.png" ) no-repeat center center;
 			}
 
 			.miss{
-				background: url( "miss.png" ) no-repeat center center;
+				background: url( "SquidwardTentacles.png" ) no-repeat center center;
 			}
 
 		</style>
@@ -65,7 +80,7 @@
 			<table>
 				<tr>
 					<td id="00"></td><td id="01"></td><td id="02"></td><td id="03"></td><td id="04"></td><td id="05"></td><td id="06"></td>
-				</tr
+				</tr>
 				<tr>
 					<td id="10"></td><td id="11"></td><td id="12"></td><td id="13"></td><td id="14"></td><td id="15"></td><td id="16"></td>
 				</tr>
@@ -86,10 +101,11 @@
 				</tr>
 			</table>
 
-			<form>
-				<input type="text" id="guessInput" placeholder="A0">
-				<input type="button" id="firstButton" value="Fire!">
-			</form>
+			<audio controls>
+				<source src="Raman.mp3" type="audio/mpeg" >
+				Your browser doen not support the audio element.
+			</audio>
+
 		</div>
 
 		<script src="battleship.js"></script>

@@ -154,11 +154,11 @@ var controller = {
 };
 
 function init () {
-	var fireButton = document.getElementById( "firstButton" );
-	fireButton.onclick = handleFireButton ;
+	//var fireButton = document.getElementById( "firstButton" );
+	//fireButton.onclick = handleFireButton ;
 
-	var guessInput = document.getElementById( "guessInput" );
-	guessInput.onkeypress = handleKeyPress  ;
+	//var guessInput = document.getElementById( "guessInput" );
+	//guessInput.onkeypress = handleKeyPress  ;
 
 	model.generateShips();
 
